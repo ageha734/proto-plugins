@@ -1,0 +1,33 @@
+name = "trivy"
+type = "cli"
+
+[platform.linux]
+download-file = "trivy_{version}_Linux-{arch}.tar.gz"
+bin-path = "trivy"
+checksum-file = "trivy_{version}_checksums.txt"
+
+[platform.macos]
+download-file = "trivy_{version}_macOS-{arch}.tar.gz"
+bin-path = "trivy"
+checksum-file = "trivy_{version}_checksums.txt"
+
+[platform.windows]
+download-file = "trivy_{version}_windows-{arch}.zip"
+bin-path = "trivy.exe"
+checksum-file = "trivy_{version}_checksums.txt"
+
+[install]
+download-url = "https://github.com/aquasecurity/trivy/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/aquasecurity/trivy/releases/download/v{version}/{checksum_file}"
+unpack = false
+
+[install.arch]
+x64 = "32bit"
+x86 = "s390x"
+x86_64 = "64bit"
+arm = "ARM"
+arm64 = "ARM64"
+aarch64 = "ARM64"
+
+[resolve]
+git-url = "https://github.com/aquasecurity/trivy"
