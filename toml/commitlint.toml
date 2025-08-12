@@ -1,0 +1,30 @@
+name = "commitlint"
+type = "cli"
+
+[platform.linux]
+download-file = "commitlint_v{version}_Linux_{arch}.tar.gz"
+bin-path = "commitlint"
+checksum-file = "commitlint_v{version}_checksums.txt"
+
+[platform.macos]
+download-file = "commitlint_v{version}_Darwin_{arch}.tar.gz"
+bin-path = "commitlint"
+checksum-file = "commitlint_v{version}_checksums.txt"
+
+[platform.windows]
+download-file = "commitlint_v{version}_Windows_{arch}.tar.gz"
+bin-path = "commitlint.exe"
+checksum-file = "commitlint_v{version}_checksums.txt"
+
+[install]
+download-url = "https://github.com/conventionalcommit/commitlint/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/conventionalcommit/commitlint/releases/download/v{version}/{checksum_file}"
+unpack = false
+
+[install.arch]
+x86_64 = "amd64"
+aarch64 = "arm64"
+x86 = "386"
+
+[resolve]
+git-url = "https://github.com/conventionalcommit/commitlint"
