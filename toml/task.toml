@@ -1,0 +1,23 @@
+name = "Task"
+type = "cli"
+
+[platform.linux]
+download-file = "task_linux_{arch}.tar.gz"
+
+[platform.macos]
+download-file = "task_darwin_{arch}.tar.gz"
+
+[platform.windows]
+download-file = "task_windows_{arch}.zip"
+
+[install]
+download-url = "https://github.com/go-task/task/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/go-task/task/releases/download/v{version}/task_checksums.txt"
+
+[install.arch]
+aarch64 = "arm64"
+x86 = "386"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/go-task/task"
