@@ -5,9 +5,9 @@ terraform-docs = "~0.20.0"
 trivy = "~0.64.1"
 
 [plugins]
-commitlint = "file://./.proto/plugin/commitlint.toml"
-kustomize = "file://./.proto/plugin/kustomize.toml"
-lefthook = "file://./.proto/plugin/lefthook.toml"
-terraform-docs = "file://./.proto/plugin/terraform-docs.toml"
-trivy = "file://./.proto/plugin/trivy.toml"
+commitlint = "file://./toml/commitlint.toml"
+kustomize = "file://./toml/kustomize.toml"
+lefthook = "file://./toml/lefthook.toml"
+terraform-docs = "file://./toml/terraform-docs.toml"
+trivy = "file://./toml/trivy.toml"
 
