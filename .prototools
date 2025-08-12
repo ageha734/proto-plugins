@@ -1,0 +1,13 @@
+commitlint = "~0.10.1"
+kustomize = "~5.7.1"
+lefthook = "~1.12.2"
+terraform-docs = "~0.20.0"
+trivy = "~0.64.1"
+
+[plugins]
+commitlint = "file://./.proto/plugin/commitlint.toml"
+kustomize = "file://./.proto/plugin/kustomize.toml"
+lefthook = "file://./.proto/plugin/lefthook.toml"
+terraform-docs = "file://./.proto/plugin/terraform-docs.toml"
+trivy = "file://./.proto/plugin/trivy.toml"
+
