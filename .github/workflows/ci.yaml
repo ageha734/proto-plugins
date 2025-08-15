@@ -14,8 +14,8 @@ jobs:
         strategy:
             matrix:
                 config:
-                - os: macos-12
-                  target: x86_64-apple-darwin
+                # - os: macos-12
+                  # target: x86_64-apple-darwin
                 - os: macos-15
                   target: aarch64-apple-darwin
                 - os: windows-2025
