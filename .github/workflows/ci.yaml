@@ -32,8 +32,6 @@ jobs:
         
         - name: Setup Toolchain
           uses: moonrepo/setup-toolchain@v0.5.0
-          env:
-            PROTO_LOG: debug
           with:
             cache: false
             auto-install: true
