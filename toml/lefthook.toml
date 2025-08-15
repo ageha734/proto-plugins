@@ -15,7 +15,6 @@ bin-path = "lefthook_{version}_Windows_{arch}.exe"
 
 [install.arch]
 aarch64 = "arm64"
-x86_64 = "amd64"
 
 [install]
 download-url = "https://github.com/evilmartians/lefthook/releases/download/v{version}/{download_file}"
