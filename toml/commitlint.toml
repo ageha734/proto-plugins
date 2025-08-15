@@ -22,9 +22,8 @@ checksum-url = "https://github.com/conventionalcommit/commitlint/releases/downlo
 unpack = false
 
 [install.arch]
-x86_64 = "amd64"
 aarch64 = "arm64"
-x86 = "386"
+x86 = "i386"
 
 [resolve]
 git-url = "https://github.com/conventionalcommit/commitlint"
