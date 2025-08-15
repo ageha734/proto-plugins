@@ -20,5 +20,8 @@ checksum-file = "hadolint-Windows-{arch}.sha256"
 download-url = "https://github.com/hadolint/hadolint/releases/download/v{version}/{download_file}"
 checksum-url = "https://github.com/hadolint/hadolint/releases/download/v{version}/{checksum_file}"
 
+[install.arch]
+aarch64 = "x86_64"
+
 [resolve]
 git-url = "https://github.com/hadolint/hadolint"
