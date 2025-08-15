@@ -3,23 +3,16 @@ name: "[CI] Proto Tools"
 on:
     push:
         branches:
-        - feature/**
-        - hotfix/**
+        - master
         paths:
         - '.github/workflows/ci.yaml'
-        - 'src/**'
-        - 'tests/**'
-        - 'Cargo.toml'
+        - 'toml/**'
     pull_request:
         branches:
-        - develop
-        - feature/**
-        - hotfix/**
+        - master
         paths:
         - '.github/workflows/ci.yaml'
-        - 'src/**'
-        - 'tests/**'
-        - 'Cargo.toml'
+        - 'toml/**'
 
 jobs:
     run-test:
