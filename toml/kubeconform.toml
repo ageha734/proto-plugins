@@ -14,8 +14,8 @@ download-file = "kubeconform-windows-{arch}.zip"
 bin-path = "kubeconform.exe"
 
 [install]
-download-url = "https://github.com/kubernetes-sigs/kubeconform/releases/download/v{version}/{download_file}"
-checksum-url = "https://github.com/kubernetes-sigs/kubeconform/releases/download/v{version}/CHECKSUMS"
+download-url = "https://github.com/yannh/kubeconform/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/yannh/kubeconform/releases/download/v{version}/CHECKSUMS"
 unpack = false
 
 [install.arch]
