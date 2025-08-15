@@ -1,0 +1,26 @@
+name = "kubeconform"
+type = "cli"
+
+[platform.linux]
+download-file = "kubeconform-linux-{arch}.tar.gz"
+bin-path = "kubeconform"
+
+[platform.macos]
+download-file = "kubeconform-darwin-{arch}.tar.gz"
+bin-path = "kubeconform"
+
+[platform.windows]
+download-file = "kubeconform-windows-{arch}.zip"
+bin-path = "kubeconform.exe"
+
+[install]
+download-url = "https://github.com/kubernetes-sigs/kubeconform/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/kubernetes-sigs/kubeconform/releases/download/v{version}/CHECKSUMS"
+unpack = false
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/yannh/kubeconform"
