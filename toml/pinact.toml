@@ -1,0 +1,28 @@
+name = "pinact"
+type = "cli"
+
+[platform.linux]
+download-file = "pinact_linux_{arch}.tar.gz"
+checksum-file = "pinact_{version}_checksums.txt"
+bin-path = "pinact"
+
+[platform.macos]
+download-file = "pinact_darwin_{arch}.tar.gz"
+checksum-file = "pinact_{version}_checksums.txt"
+bin-path = "pinact"
+
+[platform.windows]
+download-file = "pinact_windows_{arch}.zip"
+checksum-file = "pinact_{version}_checksums.txt"
+bin-path = "pinact.exe"
+
+[install]
+download-url = "https://github.com/suzuki-shunsuke/pinact/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/suzuki-shunsuke/pinact/releases/download/v{version}/{checksum_file}"
+unpack = false
+
+[install.arch]
+aarch64 = "arm64"
+
+[resolve]
+git-url = "https://github.com/suzuki-shunsuke/pinact"

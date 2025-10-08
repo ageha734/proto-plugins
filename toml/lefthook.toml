@@ -3,14 +3,17 @@ type = "cli"
 
 [platform.linux]
 download-file = "lefthook_{version}_Linux_{arch}.gz"
+checksum-file = "lefthook_checksums.txt"
 bin-path = "lefthook_{version}_Linux_{arch}"
 
 [platform.macos]
 download-file = "lefthook_{version}_MacOS_{arch}.gz"
+checksum-file = "lefthook_checksums.txt"
 bin-path = "lefthook_{version}_MacOS_{arch}"
 
 [platform.windows]
 download-file = "lefthook_{version}_Windows_{arch}.gz"
+checksum-file = "lefthook_checksums.txt"
 bin-path = "lefthook_{version}_Windows_{arch}.exe"
 
 [install.arch]
@@ -18,7 +21,7 @@ aarch64 = "arm64"
 
 [install]
 download-url = "https://github.com/evilmartians/lefthook/releases/download/v{version}/{download_file}"
-checksum-url = "https://github.com/evilmartians/lefthook/releases/download/v{version}/lefthook_checksums.txt"
+checksum-url = "https://github.com/evilmartians/lefthook/releases/download/v{version}/{checksum_file}"
 unpack = false
 
 [resolve]

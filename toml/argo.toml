@@ -1,20 +1,20 @@
-name = "Argo CLI"
+name = "argo"
 type = "cli"
 
 [platform.linux]
-exe-path = "argo-linux-{arch}"
 download-file = "argo-linux-{arch}.gz"
 checksum-file = "argo-workflows-cli-checksums.txt"
+exe-path = "argo-linux-{arch}"
 
 [platform.macos]
-exe-path = "argo-darwin-{arch}"
 download-file = "argo-darwin-{arch}.gz"
 checksum-file = "argo-workflows-cli-checksums.txt"
+exe-path = "argo-darwin-{arch}"
 
 [platform.windows]
-exe-path = "argo-windows-{arch}.exe"
 download-file = "argo-windows-{arch}.exe.gz"
 checksum-file = "argo-workflows-cli-checksums.txt"
+exe-path = "argo-windows-{arch}.exe"
 
 [install]
 download-url = "https://github.com/argoproj/argo-workflows/releases/download/v{version}/{download_file}"

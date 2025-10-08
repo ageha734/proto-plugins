@@ -3,16 +3,22 @@ type = "cli"
 
 [platform.linux]
 download-file = "tflint_linux_{arch}.zip"
+checksum-file = "checksums.txt"
+bin-path = "tflint"
 
 [platform.macos]
 download-file = "tflint_darwin_{arch}.zip"
+checksum-file = "checksums.txt"
+bin-path = "tflint"
 
 [platform.windows]
 download-file = "tflint_windows_{arch}.zip"
+checksum-file = "checksums.txt"
+bin-path = "tflint.exe"
 
 [install]
 download-url = "https://github.com/terraform-linters/tflint/releases/download/v{version}/{download_file}"
-checksum-url = "https://github.com/terraform-linters/tflint/releases/download/v{version}/checksums.txt"
+checksum-url = "https://github.com/terraform-linters/tflint/releases/download/v{version}/{checksum_file}"
 unpack = true
 
 [install.arch]

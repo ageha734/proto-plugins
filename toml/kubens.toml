@@ -1,0 +1,28 @@
+name = "kubens"
+type = "cli"
+
+[platform.linux]
+download-file = "kubens_v{version}_linux_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+bin-path = "kubens"
+
+[platform.macos]
+download-file = "kubens_v{version}_darwin_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+bin-path = "kubens"
+
+[platform.windows]
+download-file = "kubens_v{version}_windows_{arch}.zip"
+checksum-file = "checksums.txt"
+bin-path = "kubens.exe"
+
+[install]
+download-url = "https://github.com/ahmetb/kubectx/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/ahmetb/kubectx/releases/download/v{version}/{checksum_file}"
+unpack = false
+
+[install.arch]
+aarch64 = "arm64"
+
+[resolve]
+git-url = "https://github.com/ahmetb/kubectx"

@@ -1,0 +1,26 @@
+$schema: "https://moonrepo.dev/schemas/tasks.json"
+
+taskOptions:
+  inferInputs: false
+  mergeArgs: replace
+  mergeInputs: replace
+  mergeOutputs: replace
+  outputStyle: buffer-only-failure
+  internal: true
+
+tasks:
+  _shell:
+    options:
+      unixShell: "bash"
+      windowsShell: "bash"
+      internal: false
+      shell: true
+
+  _lintFormatBase:
+    options:
+      cache: false
+      unixShell: "bash"
+      windowsShell: "bash"
+      shell: true
+      internal: false
+      affectedFiles: true

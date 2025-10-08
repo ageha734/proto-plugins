@@ -1,0 +1,28 @@
+name = "kubectx"
+type = "cli"
+
+[platform.linux]
+download-file = "kubectx_v{version}_linux_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+bin-path = "kubectx"
+
+[platform.macos]
+download-file = "kubectx_v{version}_darwin_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+bin-path = "kubectx"
+
+[platform.windows]
+download-file = "kubectx_v{version}_windows_{arch}.zip"
+checksum-file = "checksums.txt"
+bin-path = "kubectx.exe"
+
+[install]
+download-url = "https://github.com/ahmetb/kubectx/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/ahmetb/kubectx/releases/download/v{version}/{checksum_file}"
+unpack = false
+
+[install.arch]
+aarch64 = "arm64"
+
+[resolve]
+git-url = "https://github.com/ahmetb/kubectx"

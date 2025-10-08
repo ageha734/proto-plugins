@@ -1,0 +1,48 @@
+$schema: "https://moonrepo.dev/schemas/project.json"
+
+taskOptions:
+  cache: false
+  cacheLifetime: "3 hr"
+
+tasks:
+  fmt:
+    extends: _lintFormatBase
+    inputs:
+      - "**/*.go"
+    command:
+      - go
+      - run
+      - github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.5.0
+      - --config $workspaceRoot/.golangci.yml
+      - fmt
+
+  lint:
+    extends: _lintFormatBase
+    inputs:
+      - "**/*.go"
+    command:
+      - go
+      - run
+      - github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.5.0
+      - --config $workspaceRoot/.golangci.yml
+      - run
+
+  test:
+    extends: _lintFormatBase
+    inputs:
+      - "**/*.go"
+    command:
+      - go
+      - test
+      - -overlay=$(go run github.com/tenntenn/testtime/cmd/testtime@v0.3.2)
+
+  validate:
+    extends: _lintFormatBase
+    deps:
+      - lint
+      - test
+    options:
+      runDepsInParallel: false
+      affectedFiles: false
+      cache: false
+      internal: false

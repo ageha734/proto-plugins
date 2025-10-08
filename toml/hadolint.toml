@@ -5,23 +5,26 @@ type = "cli"
 self-upgrade-commands = ["upgrade"]
 
 [platform.linux]
-download-file = "hadolint-Linux-{arch}"
-checksum-file = "hadolint-Linux-{arch}.sha256"
+download-file = "hadolint-linux-{arch}"
+checksum-file = "hadolint-linux-{arch}.sha256"
+bin-path = "hadolint"
 
 [platform.macos]
-download-file = "hadolint-Darwin-{arch}"
-checksum-file = "hadolint-Darwin-{arch}.sha256"
+download-file = "hadolint-macos-{arch}"
+checksum-file = "hadolint-macos-{arch}.sha256"
+bin-path = "hadolint"
 
 [platform.windows]
-download-file = "hadolint-Windows-{arch}.exe"
-checksum-file = "hadolint-Windows-{arch}.exe.sha256"
+download-file = "hadolint-windows-{arch}.exe"
+checksum-file = "hadolint-windows-{arch}.exe.sha256"
+bin-path = "hadolint.exe"
 
 [install]
 download-url = "https://github.com/hadolint/hadolint/releases/download/v{version}/{download_file}"
 checksum-url = "https://github.com/hadolint/hadolint/releases/download/v{version}/{checksum_file}"
 
 [install.arch]
-aarch64 = "x86_64"
+aarch64 = "arm64"
 
 [resolve]
 git-url = "https://github.com/hadolint/hadolint"

@@ -3,19 +3,22 @@ type = "cli"
 
 [platform.linux]
 download-file = "kubeconform-linux-{arch}.tar.gz"
+checksum-file = "CHECKSUMS"
 bin-path = "kubeconform"
 
 [platform.macos]
 download-file = "kubeconform-darwin-{arch}.tar.gz"
+checksum-file = "CHECKSUMS"
 bin-path = "kubeconform"
 
 [platform.windows]
 download-file = "kubeconform-windows-{arch}.zip"
+checksum-file = "CHECKSUMS"
 bin-path = "kubeconform.exe"
 
 [install]
 download-url = "https://github.com/yannh/kubeconform/releases/download/v{version}/{download_file}"
-checksum-url = "https://github.com/yannh/kubeconform/releases/download/v{version}/CHECKSUMS"
+checksum-url = "https://github.com/yannh/kubeconform/releases/download/v{version}/{checksum_file}"
 unpack = false
 
 [install.arch]

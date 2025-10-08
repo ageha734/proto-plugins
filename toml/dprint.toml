@@ -6,18 +6,18 @@ self-upgrade-commands = ["upgrade"]
 
 [platform.linux]
 download-file = "dprint-{arch}-unknown-linux-{libc}.zip"
-bin-path = "dprint"
 checksum-file = "SHASUMS256.txt"
+bin-path = "dprint"
 
 [platform.macos]
 download-file = "dprint-{arch}-apple-darwin.zip"
-bin-path = "dprint"
 checksum-file = "SHASUMS256.txt"
+bin-path = "dprint"
 
 [platform.windows]
 download-file = "dprint-{arch}-pc-windows-msvc.zip"
-bin-path = "dprint.exe"
 checksum-file = "SHASUMS256.txt"
+bin-path = "dprint.exe"
 
 [install]
 download-url = "https://github.com/dprint/dprint/releases/download/{version}/{download_file}"

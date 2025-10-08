@@ -1,0 +1,21 @@
+name = "hyperfine"
+type = "cli"
+
+[platform.linux]
+download-file = "hyperfine-v{version}-{arch}-unknown-linux-gnu.tar.gz"
+bin-path = "hyperfine-v{version}-{arch}-unknown-linux-gnu/hyperfine"
+
+[platform.macos]
+download-file = "hyperfine-v{version}-{arch}-apple-darwin.tar.gz"
+bin-path = "hyperfine-v{version}-{arch}-apple-darwin/hyperfine"
+
+[platform.windows]
+download-file = "hyperfine-v{version}-{arch}-pc-windows-msvc.zip"
+bin-path = "hyperfine-v{version}-{arch}-pc-windows-msvc/hyperfine.exe"
+
+[install]
+download-url = "https://github.com/sharkdp/hyperfine/releases/download/v{version}/{download_file}"
+unpack = true
+
+[resolve]
+git-url = "https://github.com/sharkdp/hyperfine"

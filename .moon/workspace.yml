@@ -1,0 +1,62 @@
+$schema: "https://moonrepo.dev/schemas/workspace.json"
+
+versionConstraint: "1.41.3"
+telemetry: false
+
+notifier:
+  terminalNotifications: failure
+
+pipeline:
+  autoCleanCache: true
+  cacheLifetime: "1 hour"
+  logRunningCommand: true
+
+hasher:
+  optimization: performance
+  ignoreMissingPatterns:
+    - "**/.golangci.yml"
+    - "**/.dprint.json"
+  ignorePatterns:
+    - "**/*.png"
+    - "**/*.webp"
+    - "**/*.webm"
+    - "**/*.jpg"
+    - "**/*.jpeg"
+    - "**/*.ttf"
+    - "**/vendor/**/*"
+    - "**/bin/**/*"
+    - "**/var/**/*"
+  walkStrategy: glob
+
+projects:
+  - "*"
+
+vcs:
+  defaultBranch: master
+  hooks:
+    commit-msg:
+      - commitlint lint --message "$1"
+    pre-commit:
+      - moon run :validate
+  manager: git
+  provider: github
+  syncHooks: true
+
+codeowners:
+  globalPaths:
+    "./.cursor/*": ["@ageha734"]
+    "./.github/*": ["@ageha734"]
+    "./.moon/*": ["@ageha734"]
+    "./.vscode/*": ["@ageha734"]
+    "./.clinerules": ["@ageha734"]
+    "./.commitlint.yaml": ["@ageha734"]
+    "./.dprint.json": ["@ageha734"]
+    "./.editorconfig": ["@ageha734"]
+    "./.gitignore": ["@ageha734"]
+    "./.golangci.yml": ["@ageha734"]
+    "./moon.yml": ["@ageha734"]
+    "./README.md": ["@ageha734", "@github_actions"]
+  syncOnRun: true
+
+constraints:
+  enforceProjectTypeRelationships: true

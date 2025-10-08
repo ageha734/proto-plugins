@@ -3,16 +3,19 @@ type = "cli"
 
 [platform.linux]
 download-file = "terragrunt_linux_{arch}"
+checksum-file = "SHA256SUMS"
 
 [platform.macos]
 download-file = "terragrunt_darwin_{arch}"
+checksum-file = "SHA256SUMS"
 
 [platform.windows]
 download-file = "terragrunt_windows_{arch}.exe"
+checksum-file = "SHA256SUMS"
 
 [install]
 download-url = "https://github.com/gruntwork-io/terragrunt/releases/download/v{version}/{download_file}"
-checksum-url = "https://github.com/gruntwork-io/terragrunt/releases/download/v{version}/SHA256SUMS"
+checksum-url = "https://github.com/gruntwork-io/terragrunt/releases/download/v{version}/{checksum_file}"
 unpack = false
 
 [install.arch]

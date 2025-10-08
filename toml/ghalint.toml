@@ -1,0 +1,29 @@
+name = "ghalint"
+type = "cli"
+
+[platform.linux]
+download-file = "ghalint_{version}_linux_{arch}.tar.gz"
+checksum-file = "ghalint_{version}_checksums.txt"
+bin-path = "ghalint"
+
+[platform.macos]
+download-file = "ghalint_{version}_darwin_{arch}.tar.gz"
+checksum-file = "ghalint_{version}_checksums.txt"
+bin-path = "ghalint"
+
+[platform.windows]
+download-file = "ghalint_{version}_windows_{arch}.zip"
+checksum-file = "ghalint_{version}_checksums.txt"
+bin-path = "ghalint.exe"
+
+[install]
+download-url = "https://github.com/suzuki-shunsuke/ghalint/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/suzuki-shunsuke/ghalint/releases/download/v{version}/{checksum_file}"
+
+[install.arch]
+arm = "armv64"
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/suzuki-shunsuke/ghalint"

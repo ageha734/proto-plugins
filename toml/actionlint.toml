@@ -4,14 +4,17 @@ type = "cli"
 [platform.linux]
 download-file = "actionlint_{version}_linux_{arch}.tar.gz"
 checksum-file = "actionlint_{version}_checksums.txt"
+bin-path = "actionlint"
 
 [platform.macos]
 download-file = "actionlint_{version}_darwin_{arch}.tar.gz"
 checksum-file = "actionlint_{version}_checksums.txt"
+bin-path = "actionlint"
 
 [platform.windows]
 download-file = "actionlint_{version}_windows_{arch}.zip"
 checksum-file = "actionlint_{version}_checksums.txt"
+bin-path = "actionlint.exe"
 
 [install]
 download-url = "https://github.com/rhysd/actionlint/releases/download/v{version}/{download_file}"

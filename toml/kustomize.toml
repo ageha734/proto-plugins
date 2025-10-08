@@ -3,19 +3,22 @@ type = "cli"
 
 [platform.linux]
 download-file = "kustomize_v{version}_linux_{arch}.tar.gz"
+checksum-file = "checksums.txt"
 bin-path = "kustomize"
 
 [platform.macos]
 download-file = "kustomize_v{version}_darwin_{arch}.tar.gz"
+checksum-file = "checksums.txt"
 bin-path = "kustomize"
 
 [platform.windows]
 download-file = "kustomize_v{version}_windows_{arch}.zip"
+checksum-file = "checksums.txt"
 bin-path = "kustomize.exe"
 
 [install]
 download-url = "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv{version}/{download_file}"
-checksum-url = "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv{version}/checksums.txt"
+checksum-url = "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv{version}/{checksum_file}"
 unpack = false
 
 [install.arch]

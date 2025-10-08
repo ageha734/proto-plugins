@@ -3,18 +3,18 @@ type = "cli"
 
 [platform.linux]
 download-file = "terraform-docs-v{version}-linux-{arch}.tar.gz"
-bin-path = "terraform-docs"
 checksum-file = "terraform-docs-v{version}.sha256sum"
+bin-path = "terraform-docs"
 
 [platform.macos]
 download-file = "terraform-docs-v{version}-darwin-{arch}.tar.gz"
-bin-path = "terraform-docs"
 checksum-file = "terraform-docs-v{version}.sha256sum"
+bin-path = "terraform-docs"
 
 [platform.windows]
 download-file = "terraform-docs-v{version}-windows-{arch}.zip"
-bin-path = "terraform.exe"
 checksum-file = "terraform-docs-v{version}.sha256sum"
+bin-path = "terraform.exe"
 
 [install]
 download-url = "https://github.com/terraform-docs/terraform-docs/releases/download/v{version}/{download_file}"
