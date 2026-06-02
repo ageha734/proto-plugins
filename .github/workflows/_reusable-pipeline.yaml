@@ -39,4 +39,9 @@ jobs:
       - run: ${{ inputs.command }}
 
       - if: (success() || failure()) && inputs.report
-        run: moon run report:run
+        uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2.0.4
+        with:
+          deno-version: v2.x
+
+      - if: (success() || failure()) && inputs.report
+        run: deno run --allow-read ./.github/scripts/report/main.ts

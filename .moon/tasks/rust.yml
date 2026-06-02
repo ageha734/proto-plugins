@@ -5,7 +5,6 @@ taskOptions:
   shell: true
   unixShell: bash
   windowsShell: bash
-  affectedFiles: true
 tasks:
   fmt:
     inputs:
@@ -47,7 +46,5 @@ tasks:
       - test
     options:
       runDepsInParallel: false
-      affectedFiles: false
-      cache: false
 inheritedBy:
   toolchain: rust

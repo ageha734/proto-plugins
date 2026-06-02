@@ -5,7 +5,6 @@ taskOptions:
   shell: true
   unixShell: bash
   windowsShell: bash
-  affectedFiles: true
 tasks:
   fmt:
     inputs:
@@ -13,7 +12,8 @@ tasks:
     command:
       - dprint
       - fmt
-      - --config $workspaceRoot/.dprint.json
+      - --config
+      - $workspaceRoot/.dprint.json
       - "**/*.go"
   lint:
     inputs:
@@ -21,7 +21,8 @@ tasks:
     command:
       - dprint
       - check
-      - --config $workspaceRoot/.dprint.json
+      - --config
+      - $workspaceRoot/.dprint.json
       - "**/*.go"
   test:
     inputs:
@@ -37,7 +38,5 @@ tasks:
       - test
     options:
       runDepsInParallel: false
-      affectedFiles: false
-      cache: false
 inheritedBy:
   toolchain: go

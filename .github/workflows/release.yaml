@@ -17,8 +17,12 @@ jobs:
         with:
           auto-install: true
 
+      - uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2.0.4
+        with:
+          deno-version: v2.x
+
       - name: Generate registry entries
-        run: moon run registry:run
+        run: deno run --allow-read --allow-write --allow-net ./.github/scripts/registry/main.ts
 
       - name: Checkout upstream proto registry
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
