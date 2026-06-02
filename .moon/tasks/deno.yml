@@ -6,31 +6,25 @@ tasks:
   fmt:
     extends: _lintFormatBase
     inputs:
-      - "**/*.go"
+      - "**/*.ts"
     command:
-      - go
-      - run
-      - github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.5.0
-      - --config $workspaceRoot/.golangci.yml
+      - deno
       - fmt
   lint:
     extends: _lintFormatBase
     inputs:
-      - "**/*.go"
+      - "**/*.ts"
     command:
-      - go
-      - run
-      - github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.5.0
-      - --config $workspaceRoot/.golangci.yml
-      - run
+      - deno
+      - lint
   test:
     extends: _lintFormatBase
     inputs:
-      - "**/*.go"
+      - "**/*.ts"
     command:
-      - go
+      - deno
       - test
-      - -overlay=$(go run github.com/tenntenn/testtime/cmd/testtime@v0.3.2)
+      - --allow-read
   ci:
     extends: _lintFormatBase
     deps:
@@ -42,4 +36,4 @@ tasks:
       cache: false
       internal: false
 inheritedBy:
-  toolchain: go
+  toolchain: deno
