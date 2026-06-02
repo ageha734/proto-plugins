@@ -1,0 +1,10 @@
+name: "[CI] Push"
+
+on:
+  push:
+      branches:
+      - master
+
+jobs:
+  ci:
+    uses: ./.github/workflows/_reusable-pipeline.yaml

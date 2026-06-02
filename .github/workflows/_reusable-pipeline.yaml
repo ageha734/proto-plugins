@@ -1,0 +1,42 @@
+name: "[Reusable] Pipeline"
+
+on:
+  workflow_call:
+    inputs:
+      moon-command:
+        type: string
+        default: "moon ci"
+      report:
+        type: boolean
+        default: true
+
+jobs:
+  ci:
+    name: "${{ matrix.config.target }}"
+    runs-on: ${{ matrix.config.os }}
+
+    strategy:
+      matrix:
+        config:
+          - os: macos-15
+            target: aarch64-apple-darwin
+          - os: windows-2025
+            target: x86_64-pc-windows-msvc
+          - os: ubuntu-24.04
+            target: x86_64-unknown-linux-gnu
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - uses: moonrepo/setup-toolchain@827700d97fe7dd1c3030018529e43e23c377c308 # v0.5.0
+        with:
+          cache: false
+          auto-install: true
+
+      - run: ${{ inputs.moon-command }}
+
+      - if: (success() || failure()) && inputs.report
+        run: deno run --allow-read ./.github/scripts/report/main.ts

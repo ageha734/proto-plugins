@@ -1,0 +1,54 @@
+name: "[Release] Registry PR"
+
+on:
+  release:
+    types:
+      - released
+
+jobs:
+  registry-pr:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: moonrepo/setup-toolchain@827700d97fe7dd1c3030018529e43e23c377c308 # v0.5.0
+        with:
+          auto-install: true
+
+      - name: Generate registry entries
+        run: deno run --allow-read --allow-write --allow-net ./.github/scripts/registry/main.ts
+
+      - name: Checkout upstream proto registry
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          repository: moonrepo/proto
+          path: proto-upstream
+          token: ${{ secrets.PROTO_FORK_PAT }}
+
+      - name: Update third-party.json
+        run: cp registry-output.json proto-upstream/registry/data/third-party.json
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v8.1.1
+        with:
+          token: ${{ secrets.PROTO_FORK_PAT }}
+          push-to-fork: ageha734/proto
+          path: proto-upstream
+          branch: registry/proto-plugins-${{ github.event.release.tag_name }}
+          title: "feat(registry): add/update proto-plugins entries"
+          body: |
+            ## Summary
+
+            Automated registry update from [proto-plugins](https://github.com/ageha734/proto-plugins) release ${{ github.event.release.tag_name }}.
+
+            Adds/updates plugin entries for proto-toml-plugins maintained by @ageha734.
+
+            ## Plugins
+
+            - actionlint, argo, commitlint, dprint, ghalint, hadolint, helm, helmfile
+            - hyperfine, kubeconform, kubectl, kubectx, kustomize, lefthook, pinact
+            - shellcheck, shfmt, task, terraform-docs, terragrunt, tflint, tilt, trivy, zizmor
+          base: master
+          commit-message: "feat(registry): add/update proto-plugins entries"
