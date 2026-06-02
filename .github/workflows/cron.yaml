@@ -18,6 +18,9 @@ jobs:
 
   integration-test:
     uses: ./.github/workflows/_reusable-pipeline.yaml
+    permissions:
+      contents: read
+      packages: read
     with:
       command: "moon run toml:test"
       report: true
