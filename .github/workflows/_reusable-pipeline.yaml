@@ -3,7 +3,7 @@ name: "[Reusable] Pipeline"
 on:
   workflow_call:
     inputs:
-      moon-command:
+      command:
         type: string
         default: "moon ci"
       report:
@@ -36,7 +36,7 @@ jobs:
           cache: false
           auto-install: true
 
-      - run: ${{ inputs.moon-command }}
+      - run: ${{ inputs.command }}
 
       - if: (success() || failure()) && inputs.report
         run: deno run --allow-read ./.github/scripts/report/main.ts
