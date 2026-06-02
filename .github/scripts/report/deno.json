@@ -1,9 +1,9 @@
 {
-    "tasks": {
-        "test": "deno test --allow-read",
-        "run": "deno run --allow-read main.ts"
-    },
-    "compilerOptions": {
-        "strict": true
-    }
+  "tasks": {
+    "test": "deno test --allow-read",
+    "run": "deno run --allow-read main.ts"
+  },
+  "compilerOptions": {
+    "strict": true
+  }
 }

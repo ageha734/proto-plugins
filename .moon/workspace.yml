@@ -2,64 +2,64 @@ $schema: https://moonrepo.dev/schemas/workspace.json
 versionConstraint: 2.3.0
 telemetry: false
 notifier:
-    terminalNotifications: failure
+  terminalNotifications: failure
 pipeline:
-    autoCleanCache: true
-    cacheLifetime: 1 hour
-    logRunningCommand: true
+  autoCleanCache: true
+  cacheLifetime: 1 hour
+  logRunningCommand: true
 hasher:
-    optimization: performance
-    ignoreMissingPatterns:
-    - '**/.golangci.yml'
-    - '**/.dprint.json'
-    ignorePatterns:
-    - '**/*.png'
-    - '**/*.webp'
-    - '**/*.webm'
-    - '**/*.jpg'
-    - '**/*.jpeg'
-    - '**/*.ttf'
-    - '**/vendor/**/*'
-    - '**/bin/**/*'
-    - '**/var/**/*'
-    walkStrategy: glob
+  optimization: performance
+  ignoreMissingPatterns:
+    - "**/.golangci.yml"
+    - "**/.dprint.json"
+  ignorePatterns:
+    - "**/*.png"
+    - "**/*.webp"
+    - "**/*.webm"
+    - "**/*.jpg"
+    - "**/*.jpeg"
+    - "**/*.ttf"
+    - "**/vendor/**/*"
+    - "**/bin/**/*"
+    - "**/var/**/*"
+  walkStrategy: glob
 projects:
-- '*'
+  - "*"
 vcs:
-    defaultBranch: master
-    hooks:
-        pre-commit:
-        - moon run :ci
-    client: git
-    provider: github
-    sync: true
+  defaultBranch: master
+  hooks:
+    pre-commit:
+      - moon run :ci
+  client: git
+  provider: github
+  sync: true
 codeowners:
-    globalPaths:
-        ./.cursor/*:
-        - '@ageha734'
-        ./.github/*:
-        - '@ageha734'
-        ./.moon/*:
-        - '@ageha734'
-        ./.vscode/*:
-        - '@ageha734'
-        ./.clinerules:
-        - '@ageha734'
-        ./.commitlint.yaml:
-        - '@ageha734'
-        ./.dprint.json:
-        - '@ageha734'
-        ./.editorconfig:
-        - '@ageha734'
-        ./.gitignore:
-        - '@ageha734'
-        ./.golangci.yml:
-        - '@ageha734'
-        ./moon.yml:
-        - '@ageha734'
-        ./README.md:
-        - '@ageha734'
-        - '@github_actions'
-    sync: true
+  globalPaths:
+    ./.cursor/*:
+      - "@ageha734"
+    ./.github/*:
+      - "@ageha734"
+    ./.moon/*:
+      - "@ageha734"
+    ./.vscode/*:
+      - "@ageha734"
+    ./.clinerules:
+      - "@ageha734"
+    ./.commitlint.yaml:
+      - "@ageha734"
+    ./.dprint.json:
+      - "@ageha734"
+    ./.editorconfig:
+      - "@ageha734"
+    ./.gitignore:
+      - "@ageha734"
+    ./.golangci.yml:
+      - "@ageha734"
+    ./moon.yml:
+      - "@ageha734"
+    ./README.md:
+      - "@ageha734"
+      - "@github_actions"
+  sync: true
 constraints:
-    enforceLayerRelationships: true
+  enforceLayerRelationships: true

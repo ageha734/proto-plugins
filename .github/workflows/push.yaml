@@ -2,7 +2,7 @@ name: "[CI] Push"
 
 on:
   push:
-      branches:
+    branches:
       - master
 
 jobs:

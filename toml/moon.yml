@@ -1,4 +1,4 @@
 $schema: https://moonrepo.dev/schemas/project.json
 id: toml
 project:
-    description: Proto TOML plugin definitions and integration tests
+  description: Proto TOML plugin definitions and integration tests
