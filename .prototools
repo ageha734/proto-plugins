@@ -22,7 +22,7 @@ task = "3.44.1"
 terraform-docs = "0.20.0"
 tflint = "0.59.1"
 tilt = "0.35.2"
-trivy = "0.67.0"
+trivy = "0.71.0"
 zizmor = "1.14.2"
 
 [plugins]
