@@ -4,27 +4,25 @@ project:
   description: Proto Tools
 tasks:
   fmt:
-    extends: _lintFormatBase
     command:
       - dprint
       - fmt
       - --config $workspaceRoot/.dprint.json
     options:
-      affectedFiles: false
+      shell: true
+      cache: false
   lint:
-    extends: _lintFormatBase
     command:
       - dprint
       - check
       - --config $workspaceRoot/.dprint.json
     options:
-      affectedFiles: false
+      shell: true
+      cache: false
   ci:
     deps:
       - fmt
       - lint
     options:
       runDepsInParallel: false
-      affectedFiles: false
       cache: false
-      internal: false
