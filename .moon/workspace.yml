@@ -25,6 +25,7 @@ hasher:
 projects:
   - "*"
   - "tools/*"
+  - ".github/scripts/*"
 vcs:
   defaultBranch: master
   hooks:

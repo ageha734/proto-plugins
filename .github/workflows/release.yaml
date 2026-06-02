@@ -18,7 +18,7 @@ jobs:
           auto-install: true
 
       - name: Generate registry entries
-        run: deno run --allow-read --allow-write --allow-net ./.github/scripts/registry/main.ts
+        run: moon run registry:run
 
       - name: Checkout upstream proto registry
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2

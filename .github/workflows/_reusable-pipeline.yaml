@@ -39,4 +39,4 @@ jobs:
       - run: ${{ inputs.command }}
 
       - if: (success() || failure()) && inputs.report
-        run: deno run --allow-read ./.github/scripts/report/main.ts
+        run: moon run report:run

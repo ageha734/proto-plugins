@@ -2,23 +2,24 @@
 taskOptions:
   cache: false
   cacheLifetime: 3 hr
+  shell: true
+  unixShell: bash
+  windowsShell: bash
+  affectedFiles: true
 tasks:
   fmt:
-    extends: _lintFormatBase
     inputs:
       - "**/*.ts"
     command:
       - deno
       - fmt
   lint:
-    extends: _lintFormatBase
     inputs:
       - "**/*.ts"
     command:
       - deno
       - lint
   test:
-    extends: _lintFormatBase
     inputs:
       - "**/*.ts"
     command:
@@ -26,7 +27,6 @@ tasks:
       - test
       - --allow-read
   ci:
-    extends: _lintFormatBase
     deps:
       - fmt
       - lint
@@ -35,6 +35,5 @@ tasks:
       runDepsInParallel: false
       affectedFiles: false
       cache: false
-      internal: false
 inheritedBy:
   toolchain: deno

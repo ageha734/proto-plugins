@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://moonrepo.dev/schemas/project.json
+language: typescript
+toolchain:
+  deno:
+    version: 2.3.3
+tasks:
+  run:
+    command:
+      - deno
+      - run
+      - --allow-read
+      - main.ts
+    options:
+      shell: true
+      cache: false

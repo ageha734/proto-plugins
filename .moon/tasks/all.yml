@@ -6,21 +6,9 @@ taskOptions:
   mergeInputs: replace
   mergeOutputs: replace
   outputStyle: buffer-only-failure
-  internal: true
 tasks:
   _shell:
     options:
       unixShell: bash
       windowsShell: bash
-      internal: false
       shell: true
-  _lintFormatBase:
-    options:
-      cache: false
-      unixShell: bash
-      windowsShell: bash
-      shell: true
-      internal: false
-      affectedFiles: true
-inheritedBy:
-  language: tasks

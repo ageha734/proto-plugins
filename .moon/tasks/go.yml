@@ -2,9 +2,12 @@
 taskOptions:
   cache: false
   cacheLifetime: 3 hr
+  shell: true
+  unixShell: bash
+  windowsShell: bash
+  affectedFiles: true
 tasks:
   fmt:
-    extends: _lintFormatBase
     inputs:
       - "**/*.go"
     command:
@@ -13,7 +16,6 @@ tasks:
       - --config $workspaceRoot/.dprint.json
       - "**/*.go"
   lint:
-    extends: _lintFormatBase
     inputs:
       - "**/*.go"
     command:
@@ -22,7 +24,6 @@ tasks:
       - --config $workspaceRoot/.dprint.json
       - "**/*.go"
   test:
-    extends: _lintFormatBase
     inputs:
       - "**/*.go"
     command:
@@ -30,7 +31,6 @@ tasks:
       - test
       - -overlay=$(go run github.com/tenntenn/testtime/cmd/testtime@v0.3.2)
   ci:
-    extends: _lintFormatBase
     deps:
       - fmt
       - lint
@@ -39,6 +39,5 @@ tasks:
       runDepsInParallel: false
       affectedFiles: false
       cache: false
-      internal: false
 inheritedBy:
   toolchain: go
