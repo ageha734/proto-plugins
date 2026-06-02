@@ -1,4 +1,4 @@
-$schema: https://moonrepo.dev/schemas/tasks.json
+# yaml-language-server: $schema=https://moonrepo.dev/schemas/tasks.json
 taskOptions:
   cache: false
   cacheLifetime: 3 hr
