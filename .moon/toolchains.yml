@@ -3,7 +3,12 @@ proto:
   version: 0.57.3
 go:
   version: 1.24.8
+  inferRelationships: false
+  inferRelationshipsFromTests: false
   tidyOnChange: true
+  vendorDir: null
   workspaces: false
+rust:
+  version: 1.87.0
 deno:
   version: 2.3.3

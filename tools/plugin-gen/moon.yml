@@ -1,0 +1,4 @@
+$schema: https://moonrepo.dev/schemas/project.json
+id: plugin-gen
+project:
+  description: Rust tool to generate proto TOML plugin values from GitHub releases API

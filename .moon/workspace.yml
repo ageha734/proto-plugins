@@ -10,7 +10,6 @@ pipeline:
 hasher:
   optimization: performance
   ignoreMissingPatterns:
-    - "**/.golangci.yml"
     - "**/.dprint.json"
   ignorePatterns:
     - "**/*.png"
@@ -25,6 +24,7 @@ hasher:
   walkStrategy: glob
 projects:
   - "*"
+  - "tools/*"
 vcs:
   defaultBranch: master
   hooks:

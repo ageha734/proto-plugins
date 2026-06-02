@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=https://moonrepo.dev/schemas/tasks.json
+taskOptions:
+  cache: false
+  cacheLifetime: 3 hr
+tasks:
+  fmt:
+    extends: _lintFormatBase
+    inputs:
+      - "**/*.rs"
+      - Cargo.toml
+    command:
+      - cargo
+      - fmt
+  lint:
+    extends: _lintFormatBase
+    inputs:
+      - "**/*.rs"
+      - Cargo.toml
+    command:
+      - cargo
+      - clippy
+      - --
+      - -D
+      - warnings
+  build:
+    extends: _lintFormatBase
+    inputs:
+      - "**/*.rs"
+      - Cargo.toml
+      - Cargo.lock
+    command:
+      - cargo
+      - build
+      - --release
+  test:
+    extends: _lintFormatBase
+    inputs:
+      - "**/*.rs"
+      - Cargo.toml
+    command:
+      - cargo
+      - test
+  ci:
+    extends: _lintFormatBase
+    deps:
+      - fmt
+      - lint
+      - test
+    options:
+      runDepsInParallel: false
+      affectedFiles: false
+      cache: false
+      internal: false
+inheritedBy:
+  toolchain: rust
