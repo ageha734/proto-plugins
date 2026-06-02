@@ -1,0 +1,9 @@
+{
+    "tasks": {
+        "test": "deno test --allow-read",
+        "run": "deno run --allow-read --allow-write --allow-net main.ts"
+    },
+    "compilerOptions": {
+        "strict": true
+    }
+}

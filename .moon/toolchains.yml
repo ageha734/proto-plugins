@@ -1,7 +1,9 @@
 $schema: https://moonrepo.dev/schemas/toolchain.json
 proto:
-    version: 0.51.4
+    version: 0.57.3
 go:
     version: 1.24.8
     tidyOnChange: true
     workspaces: false
+deno:
+    version: 2.3.3
