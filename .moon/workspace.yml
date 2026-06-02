@@ -28,10 +28,8 @@ projects:
 vcs:
     defaultBranch: master
     hooks:
-        commit-msg:
-        - commitlint lint --message "$1"
         pre-commit:
-        - moon run :validate
+        - moon run :ci
     client: git
     provider: github
     sync: true

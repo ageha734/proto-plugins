@@ -20,7 +20,7 @@ tasks:
         - --config $workspaceRoot/.dprint.json
         options:
             affectedFiles: false
-    validate:
+    ci:
         deps:
         - lint
         options:
