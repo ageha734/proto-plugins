@@ -2,7 +2,6 @@ $schema: https://moonrepo.dev/schemas/project.json
 id: workspace
 project:
     description: Proto Tools
-    title: proto-tools
 tasks:
     fmt:
         extends: _lintFormatBase
@@ -20,9 +19,19 @@ tasks:
         - --config $workspaceRoot/.dprint.json
         options:
             affectedFiles: false
+    test-scripts:
+        extends: _lintFormatBase
+        command:
+        - deno
+        - test
+        - --allow-read
+        - .github/scripts/
+        options:
+            affectedFiles: false
     ci:
         deps:
         - lint
+        - test-scripts
         options:
             runDepsInParallel: false
             affectedFiles: false
