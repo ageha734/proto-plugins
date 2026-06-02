@@ -28,6 +28,7 @@ tasks:
   ci:
     extends: _lintFormatBase
     deps:
+      - fmt
       - lint
       - test
     options:

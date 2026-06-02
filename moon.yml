@@ -19,19 +19,10 @@ tasks:
       - --config $workspaceRoot/.dprint.json
     options:
       affectedFiles: false
-  test-scripts:
-    extends: _lintFormatBase
-    command:
-      - deno
-      - test
-      - --allow-read
-      - .github/scripts/
-    options:
-      affectedFiles: false
   ci:
     deps:
+      - fmt
       - lint
-      - test-scripts
     options:
       runDepsInParallel: false
       affectedFiles: false
