@@ -23,7 +23,7 @@ hasher:
     - "**/var/**/*"
   walkStrategy: glob
 projects:
-  - "*"
+  - "toml"
   - "tools/*"
 vcs:
   defaultBranch: master
