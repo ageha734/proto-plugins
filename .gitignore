@@ -15,7 +15,6 @@
 go.work
 
 # IDE関連
-.vscode/
 .idea/
 *.swp
 *.swo
