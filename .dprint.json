@@ -26,7 +26,7 @@
       }
     ]
   },
-  "golint": {
+  "golangci": {
   },
   "includes": [
     "**/*.{json,md,toml,yaml,yml,go}"
@@ -43,6 +43,6 @@
     "https://plugins.dprint.dev/toml-0.7.0.wasm",
     "https://plugins.dprint.dev/g-plane/pretty_yaml-v0.5.1.wasm",
     "https://plugins.dprint.dev/exec-0.5.0.wasm",
-    "./tools/dprint-plugin-golint/target/release/dprint-plugin-golint"
+    "https://github.com/ageha734/dprint-plugin-golangci/releases/download/v0.1.0/dprint-plugin-golangci"
   ]
 }
