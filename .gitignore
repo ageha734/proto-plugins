@@ -1,6 +1,6 @@
 # Moon関連
 .moon/cache
-.moon/hookse
+.moon/hooks
 *.log
 
 # Go関連
