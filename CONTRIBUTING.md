@@ -44,7 +44,7 @@ This analyzes the GitHub release assets and outputs `moon generate` arguments.
 
 ```bash
 # Run all tests
-moon run :ci
+moon ci
 
 # Run plugin integration tests only
 moon run toml:test
@@ -59,7 +59,7 @@ deno test --allow-read .github/scripts/
 ## Code Style
 
 - Go formatting: `dprint fmt` (via exec plugin with gofumpt)
-- Go linting: `golangci-lint run`
+- Go linting: `dprint check` (via dprint-plugin-golangci)
 - Config files: `dprint check` (JSON, TOML, YAML, Markdown)
 - Deno scripts: `deno fmt` / `deno lint`
 
@@ -77,7 +77,7 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/):
 1. Fork the repository
 2. Create a feature branch
 3. Add your plugin with tests
-4. Ensure `moon run :ci` passes
+4. Ensure `moon ci` passes
 5. Submit a PR targeting `master`
 
 ## Plugin Guidelines

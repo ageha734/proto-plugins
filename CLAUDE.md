@@ -4,7 +4,7 @@ Proto TOML plugin registry — 25 CLI tools for moonrepo/proto.
 
 ## Quick Commands
 
-- `moon run :ci` — Full CI (lint + test)
+- `moon ci` — Full CI (lint + test)
 - `moon run toml:test` — Plugin integration tests
 - `moon generate plugin` — Generate new TOML plugin from template
 - `deno test --allow-read .github/scripts/` — Script tests

@@ -19,7 +19,7 @@
 - Prefer `uses:` actions in workflows; custom scripts only when no action exists
 - All tool versions in `.prototools` must be exact (no `>=` ranges)
 - Go formatting via dprint (exec plugin with gofumpt)
-- Go linting via golangci-lint (lint only, no formatters)
+- Go linting via dprint (dprint-plugin-golangci, lint only, no formatters)
 
 ## Plugin Development
 
@@ -37,7 +37,7 @@ Use `/wasm-plugin` skill.
 
 ## Commands
 
-- `moon run :ci` — Full CI for all projects
+- `moon ci` — Full CI for all projects
 - `moon run toml:test` — Plugin integration tests
 - `moon run workspace:lint` — dprint check
 - `moon generate plugin` — Generate new TOML plugin

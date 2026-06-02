@@ -151,7 +151,7 @@ async function main() {
     const report = await loadReport(root);
 
     if (!report) {
-        console.log("::warning::Run report does not exist, has `moon ci` or `moon run` ran?");
+        console.log("::warning::Run report does not exist, has `moon ci` or `moon run` run?");
         return;
     }
 

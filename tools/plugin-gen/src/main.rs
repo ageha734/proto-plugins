@@ -1,5 +1,4 @@
 use clap::Parser;
-use regex::Regex;
 use reqwest::blocking::Client;
 use reqwest::header::{ACCEPT, USER_AGENT};
 use serde::Deserialize;
@@ -35,7 +34,6 @@ struct Release {
 #[derive(Deserialize, Debug)]
 struct Asset {
     name: String,
-    browser_download_url: String,
 }
 
 #[derive(Debug)]
