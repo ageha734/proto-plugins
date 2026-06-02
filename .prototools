@@ -1,5 +1,5 @@
-proto = "0.53.2"
-moon = "1.41.3"
+proto = "0.57.3"
+moon = "2.3.0"
 
 actionlint =">=1.7.7"
 argo = ">=3.7.2"
