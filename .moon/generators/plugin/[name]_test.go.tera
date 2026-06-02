@@ -1,0 +1,19 @@
+---
+{% set test_file_name = name | replace(from="-", to="_") %}
+to: toml/{{ test_file_name }}_test.go
+---
+package main
+
+import (
+	"testing"
+)
+{% set func_name = name | pascal_case %}
+func Test{{ func_name }}(t *testing.T) {
+	Run(TestConfig{
+		Name: "{{ name }}",
+		AfterInstall: func(t *testing.T, shell *Shell) error {
+			shell.Exec("{{ binary_name }} {{ version_command }}")
+			return nil
+		},
+	})(t)
+}

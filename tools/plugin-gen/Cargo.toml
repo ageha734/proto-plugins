@@ -1,0 +1,12 @@
+[package]
+name = "plugin-gen"
+version = "0.1.0"
+edition = "2024"
+description = "Generate proto TOML plugin values from GitHub releases API"
+
+[dependencies]
+reqwest = { version = "0.12", features = ["json", "blocking"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clap = { version = "4", features = ["derive"] }
+regex = "1"

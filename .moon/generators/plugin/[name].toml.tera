@@ -1,0 +1,47 @@
+---
+to: toml/{{ name }}.toml
+---
+name = "{{ name }}"
+type = "cli"
+
+[platform.linux]
+download-file = "{{ linux_download_file }}"
+{% if has_checksum -%}
+checksum-file = "{{ checksum_file }}"
+{% endif -%}
+{% if archive_prefix_linux -%}
+archive-prefix = "{{ archive_prefix_linux }}"
+{% endif -%}
+bin-path = "{{ binary_name }}"
+
+[platform.macos]
+download-file = "{{ macos_download_file }}"
+{% if has_checksum -%}
+checksum-file = "{{ checksum_file }}"
+{% endif -%}
+{% if archive_prefix_macos -%}
+archive-prefix = "{{ archive_prefix_macos }}"
+{% endif -%}
+bin-path = "{{ binary_name }}"
+
+[platform.windows]
+download-file = "{{ windows_download_file }}"
+{% if has_checksum -%}
+checksum-file = "{{ checksum_file }}"
+{% endif -%}
+bin-path = "{{ binary_name }}.exe"
+
+[install]
+download-url = "https://github.com/{{ github_owner }}/{{ github_repo }}/releases/download/v{version}/{download_file}"
+{% if has_checksum -%}
+checksum-url = "https://github.com/{{ github_owner }}/{{ github_repo }}/releases/download/v{version}/{checksum_file}"
+{% endif -%}
+{% if needs_unpack == false -%}
+unpack = false
+{% endif %}
+[install.arch]
+aarch64 = "{{ arch_aarch64 }}"
+x86_64 = "{{ arch_x86_64 }}"
+
+[resolve]
+git-url = "https://github.com/{{ github_owner }}/{{ github_repo }}"
