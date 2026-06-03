@@ -13,7 +13,7 @@ Proto TOML plugin registry — 25 CLI tools for moonrepo/proto.
 ## Plugin Types
 
 | Type | Use Case                                 | How                    |
-|------|------------------------------------------|------------------------|
+| ---- | ---------------------------------------- | ---------------------- |
 | TOML | Simple CLI (download binary from GitHub) | `moon generate plugin` |
 | WASM | Complex install (gcloud, aws-cli)        | `/wasm-plugin` skill   |
 

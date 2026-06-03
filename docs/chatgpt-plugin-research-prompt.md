@@ -59,22 +59,22 @@ Non-WASM (TOML) proto plugin を作成するために必要な情報を調査す
 1. ChatGPT からJSON回答を取得
 2. JSON の値を使って `moon generate plugin` を実行:
 
-    ```bash
-    moon generate plugin -- \
-      --name "{name}" \
-      --github_owner "{github_owner}" \
-      --github_repo "{github_repo}" \
-      --binary_name "{binary_name}" \
-      --version_command "{version_command}" \
-      --linux_download_file "{linux_download_file}" \
-      --macos_download_file "{macos_download_file}" \
-      --windows_download_file "{windows_download_file}" \
-      --has_checksum {has_checksum} \
-      --checksum_file "{checksum_file}" \
-      --arch_aarch64 "{arch_aarch64}" \
-      --arch_x86_64 "{arch_x86_64}" \
-      --needs_unpack {needs_unpack}
-    ```
+   ```bash
+   moon generate plugin -- \
+     --name "{name}" \
+     --github_owner "{github_owner}" \
+     --github_repo "{github_repo}" \
+     --binary_name "{binary_name}" \
+     --version_command "{version_command}" \
+     --linux_download_file "{linux_download_file}" \
+     --macos_download_file "{macos_download_file}" \
+     --windows_download_file "{windows_download_file}" \
+     --has_checksum {has_checksum} \
+     --checksum_file "{checksum_file}" \
+     --arch_aarch64 "{arch_aarch64}" \
+     --arch_x86_64 "{arch_x86_64}" \
+     --needs_unpack {needs_unpack}
+   ```
 
 3. 生成された `toml/{name}.toml` と `toml/{name}_test.go` を確認
 4. `.prototools` にバージョンエントリを追加

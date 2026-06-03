@@ -56,9 +56,9 @@ Use this skill when the target tool requires any of:
 
 ## Examples of WASM-only tools
 
-| Tool | Reason |
-| ------ | -------- |
-| gcloud | Installer script + env vars |
-| aws-cli | Bundled installer execution |
+| Tool            | Reason                                          |
+| --------------- | ----------------------------------------------- |
+| gcloud          | Installer script + env vars                     |
+| aws-cli         | Bundled installer execution                     |
 | nvm/pyenv/rbenv | Shell profile modification + version management |
-| volta | Custom archive + env vars |
+| volta           | Custom archive + env vars                       |
