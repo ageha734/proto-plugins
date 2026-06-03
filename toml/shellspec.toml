@@ -1,0 +1,18 @@
+name = "shellspec"
+type = "cli"
+
+[platform.linux]
+download-file = "shellspec-dist.tar.gz"
+archive-prefix = "shellspec-dist"
+bin-path = "shellspec"
+
+[platform.macos]
+download-file = "shellspec-dist.tar.gz"
+archive-prefix = "shellspec-dist"
+bin-path = "shellspec"
+
+[install]
+download-url = "https://github.com/shellspec/shellspec/releases/download/{version}/{download_file}"
+
+[resolve]
+git-url = "https://github.com/shellspec/shellspec"

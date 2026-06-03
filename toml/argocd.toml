@@ -1,0 +1,29 @@
+name = "argocd"
+type = "cli"
+
+[platform.linux]
+download-file = "argocd-linux-{arch}"
+checksum-file = "cli_checksums.txt"
+bin-path = "argocd"
+
+[platform.macos]
+download-file = "argocd-darwin-{arch}"
+checksum-file = "cli_checksums.txt"
+bin-path = "argocd"
+
+[platform.windows]
+download-file = "argocd-windows-{arch}.exe"
+checksum-file = "cli_checksums.txt"
+bin-path = "argocd.exe"
+
+[install]
+download-url = "https://github.com/argoproj/argo-cd/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/argoproj/argo-cd/releases/download/v{version}/{checksum_file}"
+unpack = false
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/argoproj/argo-cd"
