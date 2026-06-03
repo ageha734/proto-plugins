@@ -1,0 +1,28 @@
+name: "[Cron] Maintenance"
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+
+permissions: {}
+
+jobs:
+  version-update:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: ageha734/proto-grove@3dcbef90ce80e243afb4a4f925020bd29f1e143b # v1.0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  integration-test:
+    uses: ./.github/workflows/_reusable-pipeline.yaml
+    permissions:
+      contents: read
+      packages: read
+    with:
+      command: "moon run toml:test"
+      report: true

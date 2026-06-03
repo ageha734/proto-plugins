@@ -8,29 +8,37 @@ taskOptions:
 tasks:
   fmt:
     inputs:
-      - "**/*.go"
+      - "**/*.rs"
+      - Cargo.toml
     command:
-      - dprint
+      - cargo
       - fmt
-      - --config
-      - $workspaceRoot/.dprint.json
-      - "**/*.go"
   lint:
     inputs:
-      - "**/*.go"
+      - "**/*.rs"
+      - Cargo.toml
     command:
-      - dprint
-      - check
-      - --config
-      - $workspaceRoot/.dprint.json
-      - "**/*.go"
+      - cargo
+      - clippy
+      - --
+      - -D
+      - warnings
+  build:
+    inputs:
+      - "**/*.rs"
+      - Cargo.toml
+      - Cargo.lock
+    command:
+      - cargo
+      - build
+      - --release
   test:
     inputs:
-      - "**/*.go"
+      - "**/*.rs"
+      - Cargo.toml
     command:
-      - go
+      - cargo
       - test
-      - -overlay=$(go run github.com/tenntenn/testtime/cmd/testtime@v0.3.2)
   ci:
     deps:
       - fmt
@@ -39,4 +47,4 @@ tasks:
     options:
       runDepsInParallel: false
 inheritedBy:
-  toolchain: go
+  toolchain: rust

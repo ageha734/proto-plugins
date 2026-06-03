@@ -1,35 +1,30 @@
-$schema: "https://moonrepo.dev/schemas/project.json"
-
+$schema: https://moonrepo.dev/schemas/project.json
 id: workspace
-
 project:
-  name: "proto-tools"
-  description: "Proto Tools"
-
+  description: Proto Tools
 tasks:
   fmt:
-    extends: _lintFormatBase
     command:
       - dprint
       - fmt
-      - --config $workspaceRoot/.dprint.json
+      - --config
+      - $workspaceRoot/.dprint.json
     options:
-      affectedFiles: false
-
+      shell: true
+      cache: false
   lint:
-    extends: _lintFormatBase
     command:
       - dprint
       - check
-      - --config $workspaceRoot/.dprint.json
+      - --config
+      - $workspaceRoot/.dprint.json
     options:
-      affectedFiles: false
-
-  validate:
+      shell: true
+      cache: false
+  ci:
     deps:
+      - fmt
       - lint
     options:
       runDepsInParallel: false
-      affectedFiles: false
       cache: false
-      internal: false

@@ -1,0 +1,28 @@
+name = "act"
+type = "cli"
+
+[platform.linux]
+download-file = "act_Linux_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+bin-path = "act"
+
+[platform.macos]
+download-file = "act_Darwin_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+bin-path = "act"
+
+[platform.windows]
+download-file = "act_Windows_{arch}.zip"
+checksum-file = "checksums.txt"
+bin-path = "act.exe"
+
+[install]
+download-url = "https://github.com/nektos/act/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/nektos/act/releases/download/v{version}/{checksum_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x86_64"
+
+[resolve]
+git-url = "https://github.com/nektos/act"

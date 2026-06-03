@@ -1,0 +1,66 @@
+title: "Proto TOML Plugin"
+description: |
+  Generates a new proto TOML plugin definition and its integration test.
+  The plugin will be created in the toml/ directory.
+variables:
+  name:
+    type: string
+    required: true
+    prompt: "Plugin name (kebab-case, e.g. terraform-docs)?"
+  github_owner:
+    type: string
+    required: true
+    prompt: "GitHub owner/organization?"
+  github_repo:
+    type: string
+    required: true
+    prompt: "GitHub repository name?"
+  binary_name:
+    type: string
+    required: true
+    prompt: "Binary executable name (defaults to plugin name)?"
+  version_command:
+    type: string
+    default: "--version"
+    required: true
+    prompt: "Version command flag (e.g. --version, version)?"
+  linux_download_file:
+    type: string
+    required: true
+    prompt: "Linux download filename pattern (use {version}, {arch})?"
+  macos_download_file:
+    type: string
+    required: true
+    prompt: "macOS download filename pattern (use {version}, {arch})?"
+  windows_download_file:
+    type: string
+    required: true
+    prompt: "Windows download filename pattern (use {version}, {arch})?"
+  has_checksum:
+    type: boolean
+    default: true
+    prompt: "Does the release include checksum files?"
+  checksum_file:
+    type: string
+    default: ""
+    prompt: "Checksum filename pattern (if applicable)?"
+  arch_aarch64:
+    type: string
+    default: "arm64"
+    prompt: "Architecture mapping for aarch64?"
+  arch_x86_64:
+    type: string
+    default: "amd64"
+    prompt: "Architecture mapping for x86_64?"
+  needs_unpack:
+    type: boolean
+    default: true
+    prompt: "Does the download need unpacking (tar/zip)?"
+  archive_prefix_linux:
+    type: string
+    default: ""
+    prompt: "Archive prefix for Linux (leave empty if none)?"
+  archive_prefix_macos:
+    type: string
+    default: ""
+    prompt: "Archive prefix for macOS (leave empty if none)?"

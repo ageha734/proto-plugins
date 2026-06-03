@@ -19,7 +19,7 @@ bin-path = "trivy.exe"
 [install]
 download-url = "https://github.com/aquasecurity/trivy/releases/download/v{version}/{download_file}"
 checksum-url = "https://github.com/aquasecurity/trivy/releases/download/v{version}/{checksum_file}"
-unpack = false
+unpack = true
 
 [install.arch]
 x64 = "32bit"

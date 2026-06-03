@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://moonrepo.dev/schemas/tasks.json
+
+taskOptions:
+  inferInputs: false
+  mergeArgs: replace
+  mergeInputs: replace
+  mergeOutputs: replace
+  outputStyle: buffer-only-failure
+tasks:
+  _shell:
+    options:
+      unixShell: bash
+      windowsShell: bash
+      shell: true

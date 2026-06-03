@@ -8,29 +8,23 @@ taskOptions:
 tasks:
   fmt:
     inputs:
-      - "**/*.go"
+      - "**/*.ts"
     command:
-      - dprint
+      - deno
       - fmt
-      - --config
-      - $workspaceRoot/.dprint.json
-      - "**/*.go"
   lint:
     inputs:
-      - "**/*.go"
+      - "**/*.ts"
     command:
-      - dprint
-      - check
-      - --config
-      - $workspaceRoot/.dprint.json
-      - "**/*.go"
+      - deno
+      - lint
   test:
     inputs:
-      - "**/*.go"
+      - "**/*.ts"
     command:
-      - go
+      - deno
       - test
-      - -overlay=$(go run github.com/tenntenn/testtime/cmd/testtime@v0.3.2)
+      - --allow-read
   ci:
     deps:
       - fmt
@@ -39,4 +33,4 @@ tasks:
     options:
       runDepsInParallel: false
 inheritedBy:
-  toolchain: go
+  toolchain: deno
