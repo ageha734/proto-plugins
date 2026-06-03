@@ -15,7 +15,9 @@
     "indentWidth": 2
   },
   "golangci": {
-    "version": "2.5.0"
+    "version": "2.5.0",
+    "configPath": ".golangci.yml",
+    "fix": true
   },
   "includes": [
     "**/*.{json,md,toml,yaml,yml,go}"
