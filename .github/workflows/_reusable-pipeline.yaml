@@ -34,7 +34,11 @@ jobs:
       - uses: moonrepo/setup-toolchain@261c62cb5b0f580c7be7c8cd0f023a2e96756095 # v0.6.4
         with:
           cache: false
-          auto-install: true
+          auto-install: false
+
+      - name: Install tools
+        continue-on-error: ${{ runner.os == 'Windows' }}
+        run: proto install
 
       - run: ${{ inputs.command }}
 
