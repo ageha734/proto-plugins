@@ -195,6 +195,9 @@ func executePluginInstallation(shell *Shell, pluginName string) {
 
 	printStep("Installing plugin...")
 	shell.Exec(fmt.Sprintf("proto install %s latest", pluginName))
+
+	printStep("Pinning version...")
+	shell.Exec(fmt.Sprintf("proto pin %s latest", pluginName))
 }
 
 func executeAfterInstallTests(t *testing.T, shell *Shell, afterInstall func(*testing.T, *Shell) error) {
