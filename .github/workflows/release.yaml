@@ -30,6 +30,7 @@ jobs:
           repository: moonrepo/proto
           path: proto-upstream
           token: ${{ secrets.PROTO_FORK_PAT }}
+          persist-credentials: false
 
       - name: Update third-party.json
         run: cp registry-output.json proto-upstream/registry/data/third-party.json
