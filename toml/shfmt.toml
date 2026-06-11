@@ -3,22 +3,18 @@ type = "cli"
 
 [platform.linux]
 download-file = "shfmt_v{version}_linux_{arch}"
-checksum-file = "sha256sums.txt"
 bin-path = "shfmt"
 
 [platform.macos]
 download-file = "shfmt_v{version}_darwin_{arch}"
-checksum-file = "sha256sums.txt"
 bin-path = "shfmt"
 
 [platform.windows]
 download-file = "shfmt_v{version}_windows_{arch}.exe"
-checksum-file = "sha256sums.txt"
 bin-path = "shfmt.exe"
 
 [install]
 download-url = "https://github.com/mvdan/sh/releases/download/v{version}/{download_file}"
-checksum-url = "https://github.com/mvdan/sh/releases/download/v{version}/{checksum_file}"
 unpack = false
 
 [install.arch]
