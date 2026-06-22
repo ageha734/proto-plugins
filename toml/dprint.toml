@@ -24,4 +24,6 @@ download-url = "https://github.com/dprint/dprint/releases/download/{version}/{do
 checksum-url = "https://github.com/dprint/dprint/releases/download/{version}/{checksum_file}"
 
 [resolve]
-git-url = "https://github.com/dprint/dprint"
+manifest-url = "https://api.github.com/repos/dprint/dprint/releases?per_page=100"
+manifest-version-key = "tag_name"
+version-pattern = "^v?(\\d+\\.\\d+\\.\\d+)$"

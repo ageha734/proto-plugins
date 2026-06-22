@@ -1,0 +1,75 @@
+name: "[Reusable] Version Matrix Test"
+
+on:
+  workflow_call:
+    inputs:
+      tool:
+        description: "Tool name to test (e.g. skaffold). Empty means all tools."
+        type: string
+        default: ""
+
+permissions: {}
+
+jobs:
+  prepare:
+    name: "Prepare version matrix"
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.build.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        id: build
+        with:
+          script: |
+            const fs = require('fs')
+            const all = JSON.parse(fs.readFileSync('.github/test-versions.json', 'utf8'))
+            const tool = '${{ inputs.tool }}'
+            const tools = tool ? [tool] : Object.keys(all)
+            const include = tools.flatMap(t => (all[t] ?? []).map(version => ({ tool: t, version })))
+            core.setOutput('matrix', JSON.stringify({ include }))
+
+  test:
+    name: "${{ matrix.tool }}@${{ matrix.version }}"
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - uses: moonrepo/setup-toolchain@261c62cb5b0f580c7be7c8cd0f023a2e96756095 # v0.6.4
+        with:
+          cache: false
+          auto-install: false
+
+      - name: Setup netrc for GitHub API auth
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const os = require('os')
+            const fs = require('fs')
+            const path = require('path')
+            const netrc = path.join(os.homedir(), '.netrc')
+            fs.writeFileSync(netrc, `machine api.github.com login x-access-token password ${{ secrets.GITHUB_TOKEN }}\n`, { mode: 0o600 })
+
+      - name: Install proto tools
+        run: proto install
+
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        id: func-name
+        with:
+          script: |
+            const tool = '${{ matrix.tool }}'
+            const name = tool.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('')
+            core.setOutput('name', name)
+
+      - name: Run test
+        env:
+          PROTO_TEST_VERSION: ${{ matrix.version }}
+        run: go test -v -run "^Test${{ steps.func-name.outputs.name }}$" ./toml/

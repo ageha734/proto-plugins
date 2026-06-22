@@ -15,4 +15,6 @@ bin-path = "shellspec"
 download-url = "https://github.com/shellspec/shellspec/releases/download/{version}/{download_file}"
 
 [resolve]
-git-url = "https://github.com/shellspec/shellspec"
+manifest-url = "https://api.github.com/repos/shellspec/shellspec/releases?per_page=100"
+manifest-version-key = "tag_name"
+version-pattern = "^v?(\\d+\\.\\d+\\.\\d+)$"

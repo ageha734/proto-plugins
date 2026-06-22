@@ -18,4 +18,6 @@ download-url = "https://github.com/sharkdp/hyperfine/releases/download/v{version
 unpack = true
 
 [resolve]
-git-url = "https://github.com/sharkdp/hyperfine"
+manifest-url = "https://api.github.com/repos/sharkdp/hyperfine/releases?per_page=100"
+manifest-version-key = "tag_name"
+version-pattern = "^v?(\\d+\\.\\d+\\.\\d+)$"

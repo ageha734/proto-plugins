@@ -8,7 +8,7 @@ permissions: {}
 
 jobs:
   version-update:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
@@ -26,3 +26,8 @@ jobs:
     with:
       command: "moon run toml:test"
       report: true
+
+  version-matrix-test:
+    uses: ./.github/workflows/_reusable-version-matrix.yaml
+    permissions:
+      contents: read

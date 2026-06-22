@@ -19,5 +19,6 @@ aarch64 = "arm64"
 x86_64 = "amd64"
 
 [resolve]
-git-url = "https://github.com/kubernetes/kubectl"
-git-tag-pattern = "^(?:v|kubernetes-)(.*)$"
+manifest-url = "https://api.github.com/repos/kubernetes/kubernetes/releases?per_page=100"
+manifest-version-key = "tag_name"
+version-pattern = "^v(\\d+\\.\\d+\\.\\d+)$"

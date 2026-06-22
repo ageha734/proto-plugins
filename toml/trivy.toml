@@ -29,4 +29,6 @@ arm64 = "ARM64"
 aarch64 = "ARM64"
 
 [resolve]
-git-url = "https://github.com/aquasecurity/trivy"
+manifest-url = "https://api.github.com/repos/aquasecurity/trivy/releases?per_page=100"
+manifest-version-key = "tag_name"
+version-pattern = "^v?(\\d+\\.\\d+\\.\\d+)$"

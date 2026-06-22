@@ -26,5 +26,6 @@ aarch64 = "arm64"
 x86_64 = "amd64"
 
 [resolve]
-git-url = "https://github.com/kubernetes-sigs/kustomize"
-git-tag-pattern = "^(?:kustomize/)(.*)$"
+manifest-url = "https://api.github.com/repos/kubernetes-sigs/kustomize/releases?per_page=100"
+manifest-version-key = "tag_name"
+version-pattern = "^kustomize/v(\\d+\\.\\d+\\.\\d+)$"

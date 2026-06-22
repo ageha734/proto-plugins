@@ -7,7 +7,7 @@ on:
 
 jobs:
   registry-pr:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     permissions:
       contents: write
 

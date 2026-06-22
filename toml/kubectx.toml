@@ -25,4 +25,6 @@ unpack = false
 aarch64 = "arm64"
 
 [resolve]
-git-url = "https://github.com/ahmetb/kubectx"
+manifest-url = "https://api.github.com/repos/ahmetb/kubectx/releases?per_page=100"
+manifest-version-key = "tag_name"
+version-pattern = "^v?(\\d+\\.\\d+\\.\\d+)$"
