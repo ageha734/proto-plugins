@@ -21,27 +21,22 @@ jobs:
         config:
           - os: macos-26
             target: aarch64-apple-darwin
-            experimental: false
             install-continue-on-error: false
 
           - os: windows-2025
             target: x86_64-pc-windows-msvc
-            experimental: false
             install-continue-on-error: true
 
           - os: windows-11-arm
             target: aarch64-pc-windows-msvc
-            experimental: true
             install-continue-on-error: true
 
           - os: ubuntu-26.04
             target: x86_64-unknown-linux-gnu
-            experimental: true
             install-continue-on-error: true
 
           - os: ubuntu-26.04-arm
             target: aarch64-unknown-linux-gnu
-            experimental: true
             install-continue-on-error: true
 
     env:
@@ -63,7 +58,7 @@ jobs:
           PROTO_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: proto install
 
-      - name: Run  ${{ inputs.command }}
+      - name: Run ${{ inputs.command }}
         run: ${{ inputs.command }}
 
       - if: (success() || failure()) && inputs.report
