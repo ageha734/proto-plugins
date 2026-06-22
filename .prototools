@@ -27,6 +27,7 @@ terraform-docs = "*"
 terraformer = "*"
 tflint = "*"
 tilt = "*"
+trivy = "*"
 zizmor = "*"
 
 [plugins]
