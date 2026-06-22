@@ -48,9 +48,17 @@ jobs:
           cache: false
           auto-install: false
 
+      - name: Setup netrc for GitHub API auth
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const os = require('os')
+            const fs = require('fs')
+            const path = require('path')
+            const netrc = path.join(os.homedir(), '.netrc')
+            fs.writeFileSync(netrc, `machine api.github.com login x-access-token password ${{ secrets.GITHUB_TOKEN }}\n`, { mode: 0o600 })
+
       - name: Install proto tools
-        env:
-          PROTO_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: proto install
 
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
