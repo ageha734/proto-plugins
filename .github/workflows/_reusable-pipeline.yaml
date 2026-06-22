@@ -54,6 +54,8 @@ jobs:
 
       - name: Install tools
         continue-on-error: ${{ matrix.config.experimental }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: proto install
 
       - name: Run  ${{ inputs.command }}
