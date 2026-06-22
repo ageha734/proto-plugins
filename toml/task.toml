@@ -26,4 +26,6 @@ x86 = "386"
 x86_64 = "amd64"
 
 [resolve]
-git-url = "https://github.com/go-task/task"
+manifest-url = "https://api.github.com/repos/go-task/task/releases?per_page=100"
+manifest-version-key = "tag_name"
+version-pattern = "^v?(\\d+\\.\\d+\\.\\d+)$"

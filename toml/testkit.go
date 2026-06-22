@@ -187,6 +187,11 @@ func initializeShell(t *testing.T) *Shell {
 }
 
 func executePluginInstallation(shell *Shell, pluginName string) {
+	version := os.Getenv("PROTO_TEST_VERSION")
+	if version == "" {
+		version = "latest"
+	}
+
 	printStep("Setting up test environment...")
 	shell.Exec("pwd")
 
@@ -194,10 +199,10 @@ func executePluginInstallation(shell *Shell, pluginName string) {
 	shell.Exec(fmt.Sprintf("proto plugin add %s source:./%s.toml", pluginName, pluginName))
 
 	printStep("Installing plugin...")
-	shell.Exec(fmt.Sprintf("proto install %s latest", pluginName))
+	shell.Exec(fmt.Sprintf("proto install %s %s", pluginName, version))
 
 	printStep("Pinning version...")
-	shell.Exec(fmt.Sprintf("proto pin %s latest", pluginName))
+	shell.Exec(fmt.Sprintf("proto pin %s %s", pluginName, version))
 }
 
 func executeAfterInstallTests(t *testing.T, shell *Shell, afterInstall func(*testing.T, *Shell) error) {

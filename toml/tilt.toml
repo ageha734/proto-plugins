@@ -24,4 +24,6 @@ checksum-url = "https://github.com/tilt-dev/tilt/releases/download/v{version}/{c
 aarch64 = "arm64"
 
 [resolve]
-git-url = "https://github.com/tilt-dev/tilt"
+manifest-url = "https://api.github.com/repos/tilt-dev/tilt/releases?per_page=100"
+manifest-version-key = "tag_name"
+version-pattern = "^v?(\\d+\\.\\d+\\.\\d+)$"

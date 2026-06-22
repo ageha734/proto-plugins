@@ -26,3 +26,8 @@ jobs:
     with:
       command: "moon run toml:test"
       report: true
+
+  version-matrix-test:
+    uses: ./.github/workflows/_reusable-version-matrix.yaml
+    permissions:
+      contents: read
