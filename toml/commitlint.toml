@@ -19,7 +19,7 @@ bin-path = "commitlint.exe"
 [install]
 download-url = "https://github.com/conventionalcommit/commitlint/releases/download/v{version}/{download_file}"
 checksum-url = "https://github.com/conventionalcommit/commitlint/releases/download/v{version}/{checksum_file}"
-unpack = false
+unpack = true
 
 [install.arch]
 aarch64 = "arm64"

@@ -22,8 +22,7 @@ checksum-url = "https://github.com/aquasecurity/trivy/releases/download/v{versio
 unpack = true
 
 [install.arch]
-x64 = "32bit"
-x86 = "s390x"
+x64 = "64bit"
 x86_64 = "64bit"
 arm = "ARM"
 arm64 = "ARM64"
