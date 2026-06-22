@@ -17,8 +17,8 @@ checksum-file = "skaffold-windows-{arch}.exe.sha256"
 bin-path = "skaffold.exe"
 
 [install]
-download-url = "https://github.com/GoogleContainerTools/skaffold/releases/download/v{version}/{download_file}"
-checksum-url = "https://github.com/GoogleContainerTools/skaffold/releases/download/v{version}/{checksum_file}"
+download-url = "https://storage.googleapis.com/skaffold/releases/v{version}/{download_file}"
+checksum-url = "https://storage.googleapis.com/skaffold/releases/v{version}/{checksum_file}"
 unpack = false
 
 [install.arch]
