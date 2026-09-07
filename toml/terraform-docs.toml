@@ -14,7 +14,7 @@ bin-path = "terraform-docs"
 [platform.windows]
 download-file = "terraform-docs-v{version}-windows-{arch}.zip"
 checksum-file = "terraform-docs-v{version}.sha256sum"
-bin-path = "terraform.exe"
+bin-path = "terraform-docs.exe"
 
 [install]
 download-url = "https://github.com/terraform-docs/terraform-docs/releases/download/v{version}/{download_file}"
